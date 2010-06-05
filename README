@@ -1,0 +1,29 @@
+
+#First make sure you have pip installed
+easy_install pip
+
+# Also make sure that git is installed, for example in ubuntu
+sudo apt-get install git-core
+
+# Got to your favorite directory and clone the project
+git clone https://ingenieroariel@github.com/ingenieroariel/python-geoserver.git
+
+# Navigate to the newly created server
+cd python-geoserver
+
+# Then install the python dependencies
+pip install -r requirements.txt
+
+# For those not used to git, here is a quick and dirty manual:
+# To make sure your sources are up to date, type:
+git pull
+
+# To see a local diff:
+git diff
+
+# To commit changes use this one: (-a means add all the file that have changed)
+git commit -a -m "this is what I am doing"
+
+# To put the changes back online
+git push origin master
+
