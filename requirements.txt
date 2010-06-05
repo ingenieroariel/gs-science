@@ -1,2 +1,2 @@
--e git+http://github.com/dwins/gsconfig.py.git#egg=gsconfig.py
+-e git+http://github.com/ingenieroariel/gsconfig.py.git#egg=gsconfig.py
 shapely
