@@ -1,0 +1,2 @@
+-e git+http://github.com/dwins/gsconfig.py.git#egg=gsconfig.py
+shapely
