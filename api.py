@@ -8,3 +8,11 @@ def get_features(wfs_url, layer):
         return None
     response = wfs.getfeature(typename=[layer], format="json")
     return geojson.loads(response.read())
+
+def get_coverage(wcs_url, layer):
+    wcs = WebCoverageService(wcs_url, version='1.1.1')
+    if layer not in wcs.contents.keys():
+        return None
+
+    response = wcs.getcoverage(typename=[layer], format="GeoTIFF")
+    return response

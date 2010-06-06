@@ -1,14 +1,16 @@
 """This is an example of using the Geoserver API
 """
-from api import get_features
+from api import get_features, get_coverage
 
-GEOSERVER_BASE_URL = "http://localhost:8080/geoserver/"
-WFS_URL = GEOSERVER_BASE_URL + "wfs?"
+GEOSERVER_URL = "http://localhost:8080/geoserver/ows?"
 
 POLITICAL_LAYER = "testing:district"
-POPULATION_LAYER = "rastert_ispop201"
+POPULATION_LAYER = "population"
 
-data = get_features(wfs_url=WFS_URL, layer=POLITICAL_LAYER)
+data = get_features(wfs_url=GEOSERVER_URL, layer=POLITICAL_LAYER)
 
 print "CRS: ", data["crs"]
 print "Number of features:", len(data["features"])
+
+#raster_data = get_coverage(wcs_url=GEOSERVER_URL, layer=POPULATION_LAYER)
+#print raster_data
