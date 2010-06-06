@@ -21,7 +21,6 @@ def download_shapefile(shapefile_url, verbose=True):
     urllib.urlretrieve(shapefile_url, shape_archive)
 
     # Unpack
-    print temp_dir
     s = 'unzip %s -d %s' % (shape_archive, temp_dir)
     if verbose:
         print(s)
@@ -37,14 +36,17 @@ def download_shapefile(shapefile_url, verbose=True):
 
 
 def open_shapefile(shapefile, verbose=True):
-    """
-    Creates a numpy array from a shapefile 
+    """Create a numpy array from a shapefile 
     (and downloads it if it's not a local file)
     """
 
     # Convert
+    print 'shapfile', shapefile
     source = ogr.Open(shapefile)
+    print 'source', source
+    print dir(source)
     #borders = source.GetLayerByName("default") 
+    #print borders
     # ... to be continued
 
 catalog = Catalog(GEOSERVER_BASE_URL + "rest")
@@ -54,5 +56,5 @@ print layer.name
 
 tmpdir, basename = download_shapefile(WFS_BASE_URL+layer.name)
 print tmpdir, basename
-open_shapefile(os.path.join(tmpdir, basename, '.shp'))
+open_shapefile(os.path.join(tmpdir, basename + '.shp'))
 
