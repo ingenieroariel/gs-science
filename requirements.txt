@@ -1,4 +1,4 @@
 -e git+http://github.com/ingenieroariel/gsconfig.py.git#egg=gsconfig.py
--e svn+http://svn.gispython.org/svn/gispy/OWSLib/trunk#egg=owslib
+-e git+http://github.com/ingenieroariel/owslib.git#egg=owslib
 shapely
 geojson
