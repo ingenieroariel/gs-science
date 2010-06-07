@@ -9,6 +9,9 @@ POPULATION_LAYER = "population"
 
 data = get_features(wfs_url=GEOSERVER_URL, layer=POLITICAL_LAYER)
 
+# This data is in the GEOJSON format. We need to think about a workable
+# Python structure that will allow access to the numerical data as
+# a consecutive array
 print "CRS: ", data["crs"]
 print "Number of features:", len(data["features"])
 
