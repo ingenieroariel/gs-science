@@ -1,12 +1,23 @@
+#----------------------------
+# Instructions for developers
+#----------------------------
 
+# Create an account on github.com
+https://github.com/account
+
+# Create a set of SSH keys
+ssh-keygen -t rsa -C "<comment>"
+
+# Paste them into github under Account Settings | SSH Public Keys
+	
 # Go to you favorite directory and get the repository	
-git clone https://ingenieroariel@github.com/ingenieroariel/gs-science.git
-
-# Alternatively, for r/w access using SSH public keys, the command is
 git clone git@github.com:ingenieroariel/gs-science.git
 	
 # Then run the configuration script
-python install_gsscience.py
+python configure_project.py
+
+# Run the demo
+python demo.py
 
 
 
