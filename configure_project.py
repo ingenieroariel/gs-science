@@ -1,6 +1,8 @@
 """Install and configure all requirements for running the gs-science project
 from the git repository.
 
+This is specific to Ubuntu. If you don't use Ubuntu, you must do the steps manually.
+
 It is assumed that ssh keys have been set up at github.com and that git repository has been cloned e.g. using the command
 
 git clone git@github.com:ingenieroariel/gs-science.git
@@ -42,6 +44,7 @@ def install_ubuntu_packages():
     s = 'sudo apt-get clean'
     run(s, verbose=True)
     
+    #for package in ['python-setuptools']: #, 'python-pip']: # Pip not in Ubuntu pre-Karmic
     for package in ['python-setuptools', 'python-pip']:
 
                     
