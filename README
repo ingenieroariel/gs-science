@@ -1,18 +1,38 @@
 
-#First make sure you have pip installed
-easy_install pip
+# Go to you favorite directory and get the repository	
+git clone https://ingenieroariel@github.com/ingenieroariel/gs-science.git
 
-# Also make sure that git is installed, for example in ubuntu
+# Alternatively, for r/w access using SSH public keys, the command is
+git clone git@github.com:ingenieroariel/gs-science.git
+	
+# Then run the configuration script
+python install_gsscience.py
+
+
+
+
+#-----------------------------------------------------------------
+# If the above fails you can try the steps manually as shown below
+#-----------------------------------------------------------------	
+	
+	
+# First make sure you have pip installed, for example in Ubuntu
+sudo easy_install pip
+
+# Also make sure that git is installed, for example in Ubuntu
 sudo apt-get install git-core
 
-# Got to your favorite directory and clone the project
-git clone https://ingenieroariel@github.com/ingenieroariel/python-geoserver.git
+# Go to your favorite directory and clone the project
+git clone https://ingenieroariel@github.com/ingenieroariel/gs-science.git
+
+# Alternatively, for r/w access using SSH public keys, the command is
+git clone git@github.com:ingenieroariel/gs-science.git
 
 # Navigate to the newly created server
-cd python-geoserver
+cd gs-science
 
-# Then install the python dependencies
-pip install -r requirements.txt
+# Then install the python dependencies, for example in Ubuntu
+sudo pip install -r requirements.txt
 
 # For those not used to git, here is a quick and dirty manual:
 # To make sure your sources are up to date, type:
