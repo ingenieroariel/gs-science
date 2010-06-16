@@ -62,5 +62,6 @@ for i, feature in enumerate(data['features']):
 
 print 'Total number of points in polygons:', number_of_points
 
-#raster_data = get_coverage(wcs_url=GEOSERVER_URL, layer=POPULATION_LAYER)
-#print raster_data
+print
+raster_data = get_coverage(wcs_url=GEOSERVER_URL, layer=POPULATION_LAYER, verbose=True)
+print raster_data
