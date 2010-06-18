@@ -7,6 +7,15 @@ GEOSERVER_URL = 'http://www.aifdr.org:8080/geoserver/ows?'
 
 POLITICAL_LAYER = 'test:gadm_IDN_1'
 POPULATION_LAYER = 'test:gazette'
+HAZARD_LAYER = 'test:shakemap_3009009'
+
+
+# First get the hazard raster layer
+raster_data = get_coverage(wcs_url=GEOSERVER_URL, layer=HAZARD_LAYER, verbose=True)
+print raster_data
+
+
+# Then get a political boundary as vector data
 
 data = get_features(wfs_url=GEOSERVER_URL, layer=POLITICAL_LAYER, verbose=True)
 
@@ -63,5 +72,4 @@ for i, feature in enumerate(data['features']):
 print 'Total number of points in polygons:', number_of_points
 
 print
-raster_data = get_coverage(wcs_url=GEOSERVER_URL, layer=POPULATION_LAYER, verbose=True)
-print raster_data
+
