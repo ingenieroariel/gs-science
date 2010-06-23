@@ -7,7 +7,14 @@ It is assumed that ssh keys have been set up at github.com and that git reposito
 
 git clone git@github.com:ingenieroariel/gs-science.git
 
+
+
 """
+
+# Manual steps:
+# python-pip does not exist in Ubuntu < Karmic, so one must get it manually from
+# http://pypi.python.org/packages/source/p/pip/pip-0.7.2.tar.gz
+# unpack in install with distutils: python setup.py install
 
 
 
@@ -44,8 +51,8 @@ def install_ubuntu_packages():
     s = 'sudo apt-get clean'
     run(s, verbose=True)
     
-    #for package in ['python-setuptools']: #, 'python-pip']: # Pip not in Ubuntu pre-Karmic
-    for package in ['python-setuptools', 'python-pip']:
+    for package in ['python-setuptools']: #, 'python-pip']: # Pip not in Ubuntu pre-Karmic
+    #for package in ['python-setuptools', 'python-pip']:
 
                     
         s = 'sudo apt-get -y install %s' % package
