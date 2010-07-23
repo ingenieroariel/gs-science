@@ -1,0 +1,78 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{url}      % for URLs and DOIs
+\newcommand{\doi}[1]{\url{http://dx.doi.org/#1}}
+
+\begin{document}
+
+\section*{Spatial Information for Disaster Risk Reduction - Impact Modelling Demonstrator}
+
+\subsection*{Background}
+
+Risk and impact modelling are required by governments around the world to reduce loss of life and financial loss caused by a disasters. These analyses rely on modelling using spatial information ranging from geophysical data to population information and administrative jurisdictions.
+In general, impact assessments involve applying hazard levels from a hazard map to exposed infrastructure or population according to specific impact functions (e.g. vulnerability curves or fatality models) and then aggregating the results according to some administrative boundary. 
+This demonstrator shows the potential for implementing web based impact assesments with the following benefits
+\begin{enumerate}
+  \item Spatial data sets required are read directly from web services with no need for sourcing or data conversions.
+  \item The steps required for the analyses are semi-automatic and reproducible.
+  \item Impact analyses can be produced rapidly.
+  \item Both input data and results can be viewed within the same web based framework.
+  \item User data can be uploaded and included in analyses as required.
+\end{enumerate} 
+
+\subsection*{Demonstrator}
+
+The demonstrator is based on the following datasets:
+\subsubsection*{Hazard Levels}
+\begin{itemize} 
+  \item Indonesian Earthquake Hazard Map (both PGA and 1Hz version)
+  \item Lembang fault earthquake scenario (Bandung)
+  \item Volcanic ash load $[kg/m^2]$ and thickness $[cm]$ for the Guntur 1840/1841 eruption 
+\end{itemize}   
+  
+\subsubsection*{Exposure Data}
+\begin{itemize}  
+  \item Landscan
+  \item ABEP schools
+  \item Bridges
+\end{itemize} 
+
+\subsubsection*{Administrative Boundaries}
+\begin{itemize}  
+   \item Indonesian Provinces
+   \item Indonesian Districts
+\end{itemize} 
+   
+\subsubsection*{Other Information}
+\begin{itemize} 
+  \item Earthquake intensity fatality curves (Allen)
+  \item Active faults with attributes
+  \item Impact levels are computed according to the formula
+  \[
+     I_{h,i,k} = \sum_{j \in \Omega_k} F_{h,i}(\lambda_h(\bold{x}_j), \kappa_i(\bold{x}_j))
+  \] where
+  \begin{itemize} 
+    \item $I_{h,i,k}$ is the impact level for hazard $h$, exposure data $i$ and region $k$
+    \item $\Omega_k$ is the set of indices of points inside region $k$
+    \item $\bold{x}_j$ is the coordinates of the $j$'th point. Points will typically coincide with locations of exposure data.
+    \item $\lambda_h(\bold{x})$ is the hazard level for hazard $h$ at point $\bold{x}$
+    \item $\kappa_i(\bold{x})$ is the exposure value (e.g.\ population,  value, etc) for exposure data $i$ at point $\bold{x}$
+    \item $F_{h,i}(a, b)$ is the impact function for hazard $h$ and exposure data $i$ with hazard level $a$ and exposure value $b$
+  \end{itemize} 
+\end{itemize} 
+
+\subsubsection*{Narrative}
+
+\begin{enumerate} 
+  \item Web browser shows map of Indonesia with satellite background from Google and the option of viewing all of the involved layers individually and jointly.
+  \item Select Earthquake Hazard Map, Landscan Data and Province Boundaries for analysis and press OK. The tool will compute the estimated fatalities using the TA fatality model, aggregate them to the selected regions and display an appropriately colour coded new layer with this information.
+  \item Zoom to Bandung and repeat (2) with District Boundaries (or without aggregation) to get a finer resolution.
+  \item Turn on the Active Faults layer to investigate potential sources for earthquake events affecting Bandung. Web browser will show fault attributes when fault lines are clicked.
+  \item Select Lembang Earthquake Scenario, Landscan Data and District Boundaries to see the estimated fatalities for this event.
+  \item Upload the ABEP schools data set from a local file to a geoserver.
+  \item Turn on the Schools layer and repeat (5). This will use another impact function that will relate hazard level to \% building damage and show the School data colour coded appropriately
+\end{enumerate} 
+
+\end{document}
