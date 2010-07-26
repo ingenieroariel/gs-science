@@ -15,12 +15,13 @@ Risk and impact modelling are required by governments around the world to reduce
 In general, impact assessments involve applying hazard levels from a hazard map to exposed infrastructure or population according to specific impact functions (e.g. vulnerability curves or fatality models) and then aggregating the results according to some administrative boundary. 
 This demonstrator shows the potential for implementing web based impact assesments with the following benefits
 \begin{enumerate}
-  \item Spatial data sets required are read directly from web services with no need for sourcing or data conversions.
+  \item Spatial data sets required are read directly from web services with no need for sourcing or data conversions. The web services can be hosted on-line or locally, e.g.\ from a USB stick, using the exact same protocol.
   \item The steps required for the analyses are semi-automatic and reproducible.
-  \item Impact analyses can be produced rapidly.
+  \item Impact analyses can be produced rapidly and consistently.
   \item Both input data and results can be viewed within the same web based framework.
   \item User data can be uploaded and included in analyses as required.
 \end{enumerate} 
+
 
 \subsection*{Demonstrator}
 
@@ -35,6 +36,7 @@ The demonstrator is based on the following datasets:
 \subsubsection*{Exposure Data}
 \begin{itemize}  
   \item Landscan
+  \item BPS population data
   \item ABEP schools
   \item Bridges
 \end{itemize} 
@@ -49,6 +51,7 @@ The demonstrator is based on the following datasets:
 \begin{itemize} 
   \item Earthquake intensity fatality curves (Allen)
   \item Active faults with attributes
+  \item Active volcanoes
   \item Impact levels are computed according to the formula
   \[
      I_{h,i,k} = \sum_{j \in \Omega_k} F_{h,i}(\lambda_h(\bold{x}_j), \kappa_i(\bold{x}_j))
@@ -68,11 +71,14 @@ The demonstrator is based on the following datasets:
 \begin{enumerate} 
   \item Web browser shows map of Indonesia with satellite background from Google and the option of viewing all of the involved layers individually and jointly.
   \item Select Earthquake Hazard Map, Landscan Data and Province Boundaries for analysis and press OK. The tool will compute the estimated fatalities using the TA fatality model, aggregate them to the selected regions and display an appropriately colour coded new layer with this information.
-  \item Zoom to Bandung and repeat (2) with District Boundaries (or without aggregation) to get a finer resolution.
+  \item Aggregate the above again using District Boundaries to get a finer resolution.
+  \item Zoom to the Bandung area.
   \item Turn on the Active Faults layer to investigate potential sources for earthquake events affecting Bandung. Web browser will show fault attributes when fault lines are clicked.
   \item Select Lembang Earthquake Scenario, Landscan Data and District Boundaries to see the estimated fatalities for this event.
   \item Upload the ABEP schools data set from a local file to a geoserver.
   \item Turn on the Schools layer and repeat (5). This will use another impact function that will relate hazard level to \% building damage and show the School data colour coded appropriately
+  \item Turn on the Active Volcanoes dataset.
+  \item Turn on ash thicknesses, identify volcanic scenario and calculate estimated fatalities.
 \end{enumerate} 
 
 \end{document}
